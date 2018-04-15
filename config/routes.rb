@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'todo/index'
+  resources :todos, only: %i[index create]
 
   get 'test/index'
 

@@ -9,7 +9,7 @@ export default class App extends Component {
     this.state = {todos: []}
   }
   componentDidMount() {
-    fetch("http://localhost:3000/todo/index.json")
+    fetch("http://localhost:3000/todos.json")
       .then(response => response.json())
       .then(data => {
         this.setState({
@@ -19,7 +19,20 @@ export default class App extends Component {
   }
   addTodo(name, createdAt) {
     const todo = {name: name, createdAt: createdAt}
-    this.setState({todos: this.state.todos.concat(todo)})
+    const headers = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+    const method = 'POST'
+    const body = JSON.stringify(todo)
+    fetch("http://localhost:3000/todos.json", {
+      headers: headers,
+      method: method,
+      body: body
+    }).then(response => response.json())
+      .then(data => {
+        this.setState({todos: this.state.todos.concat(todo)})
+      })
   }
   render() {
     return (
