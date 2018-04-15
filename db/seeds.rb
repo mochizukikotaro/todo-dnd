@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Todo.create([
-  { name: "犬" },
-  { name: "猫" },
-  { name: "馬" }
+  { name: "Study react" },
+  { name: "Study webpacker" },
+  { name: "Create todo app" }
 ])
