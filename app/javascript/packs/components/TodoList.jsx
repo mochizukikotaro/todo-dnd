@@ -6,7 +6,7 @@ const TodoList = (props) => {
   return (
     <table>
       <thead>
-        <tr><th>やること</th><th>作成日</th></tr>
+        <tr><th>Todo</th><th>Created at</th></tr>
       </thead>
       <tbody>
         {props.todos.map((todo) =>
