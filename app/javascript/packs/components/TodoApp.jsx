@@ -9,15 +9,30 @@ export default class App extends Component {
     this.state = {todos: []}
   }
   componentDidMount() {
-    this.setState({todos: [
-      {createdAt: (new Date()).toString(), name: "デザインの勉強"},
-      {createdAt: (new Date()).toString(), name: "美味しい日本酒を飲む"},
-      {createdAt: (new Date()).toString(), name: "ワインについて勉強"}
-    ]})
+    fetch("http://localhost:3000/todos.json")
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          todos: data.map(d => ({name: d.name, createdAt: d.created_at}))
+        })
+      })
   }
   addTodo(name, createdAt) {
     const todo = {name: name, createdAt: createdAt}
-    this.setState({todos: this.state.todos.concat(todo)})
+    const headers = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+    const method = 'POST'
+    const body = JSON.stringify(todo)
+    fetch("http://localhost:3000/todos.json", {
+      headers: headers,
+      method: method,
+      body: body
+    }).then(response => response.json())
+      .then(data => {
+        this.setState({todos: this.state.todos.concat(todo)})
+      })
   }
   render() {
     return (
