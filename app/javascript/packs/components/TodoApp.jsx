@@ -6,6 +6,7 @@ import TodoList from './TodoList'
 export default class App extends Component {
   constructor(props) {
     super(props)
+    this.deleteItem = this.deleteItem.bind(this) // こんなこと必要ですか？
     this.state = {todos: []}
   }
   componentDidMount() {
@@ -44,7 +45,7 @@ export default class App extends Component {
       })
   }
   deleteItem(id) {
-    console.log('ID is ' + id);
+    this.setState({todos: this.state.todos.filter(d => d.id != id)})
   }
   render() {
     return (
