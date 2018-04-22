@@ -13,11 +13,15 @@ export default class App extends Component {
       .then(response => response.json())
       .then(data => {
         this.setState({
-          todos: data.map(d => ({name: d.name, createdAt: d.created_at}))
+          todos: data.map(d => ({
+            id: d.id,
+            name: d.name,
+            createdAt: d.created_at
+          }))
         })
       })
   }
-  addTodo(name, createdAt) {
+  addItem(name, createdAt) {
     const todo = {name: name, createdAt: createdAt}
     const headers = {
       'Accept': 'application/json',
@@ -34,11 +38,14 @@ export default class App extends Component {
         this.setState({todos: this.state.todos.concat(todo)})
       })
   }
+  removeItem(id) {
+
+  }
   render() {
     return (
       <div>
         <h1>TodoApp</h1>
-        <TodoForm add={(name, createdAt) => this.addTodo(name, createdAt)} />
+        <TodoForm add={(name, createdAt) => this.addItem(name, createdAt)} />
         <TodoList todos={this.state.todos} />
       </div>
     )
