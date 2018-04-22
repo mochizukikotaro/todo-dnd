@@ -3,7 +3,7 @@ import TodoForm from './TodoForm'
 import TodoList from './TodoList'
 
 
-export default class App extends Component {
+export default class TodoApp extends Component {
   constructor(props) {
     super(props)
     this.deleteItem = this.deleteItem.bind(this)
