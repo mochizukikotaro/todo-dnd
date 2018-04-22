@@ -20,7 +20,7 @@ export default class TodoItem extends Component {
         <td>{name}</td>
         <td>{createdAt}</td>
         <td>
-          <button value={id} onClick={this.delete}>削除する</button>
+          <button value={id} onClick={this.delete}>delete</button>
         </td>
       </tr>
     )
