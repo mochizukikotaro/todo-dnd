@@ -9,7 +9,7 @@ import TodoApp from './components/TodoApp'
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <TodoApp />,
+    <App />,
     document.getElementById('root'),
   )
 })
