@@ -15,7 +15,9 @@ const TodoList = (props) => {
       </thead>
       <tbody>
         {props.todos.map((todo) =>
-          <TodoItem todo={todo} key={todo.name + todo.createdAt} />
+          <TodoItem todo={todo}
+                    key={todo.name + todo.createdAt}
+                    deleteItem={(id) => {console.log('id is' + id)}} />
         )}
       </tbody>
     </table>
