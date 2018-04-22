@@ -17,14 +17,15 @@ const TodoList = (props) => {
         {props.todos.map((todo) =>
           <TodoItem todo={todo}
                     key={todo.name + todo.createdAt}
-                    deleteItem={(id) => {console.log('id is' + id)}} />
+                    deleteItem={(id) => props.deleteItem(id)} />
         )}
       </tbody>
     </table>
   )
 }
 TodoList.propTypes = {
-  todos: PropTypes.array
+  todos: PropTypes.array,
+  deleteItem: PropTypes.func
 }
 
 

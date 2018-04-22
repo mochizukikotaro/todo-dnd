@@ -43,15 +43,15 @@ export default class App extends Component {
         this.setState({todos: this.state.todos.concat(newItem)})
       })
   }
-  removeItem(id) {
-
+  deleteItem(id) {
+    console.log('ID is ' + id);
   }
   render() {
     return (
       <div>
         <h1>TodoApp</h1>
         <TodoForm add={(name, createdAt) => this.addItem(name, createdAt)} />
-        <TodoList todos={this.state.todos} />
+        <TodoList todos={this.state.todos} deleteItem={this.deleteItem} />
       </div>
     )
   }
