@@ -35,7 +35,12 @@ export default class App extends Component {
       body: body
     }).then(response => response.json())
       .then(data => {
-        this.setState({todos: this.state.todos.concat(todo)})
+        const newItem = {
+          id: data.id,
+          name: data.name,
+          createdAt: data.created_at
+        }
+        this.setState({todos: this.state.todos.concat(newItem)})
       })
   }
   removeItem(id) {

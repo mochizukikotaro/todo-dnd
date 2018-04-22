@@ -16,8 +16,12 @@ export default class TodoForm extends Component {
   render() {
     return (
       <div>
-        <input type="text" value={this.state.name} onChange={(event) => this.onChangeName(event)} />
-        <input type="submit" value="Add todo" onClick={() => this.onClickSubmit()} />
+        <input type="text"
+               value={this.state.name}
+               onChange={(event) => this.onChangeName(event)} />
+        <input type="submit"
+               value="Add todo"
+               onClick={() => this.onClickSubmit()} />
       </div>
     )
   }
