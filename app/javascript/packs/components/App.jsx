@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import TodoItem from './TodoItem'
 
 // fake data generator
 const getItems = count =>
   Array.from({ length: count }, (v, k) => k).map(k => ({
-    id: `item-${k}`,
-    content: `item ${k}`
+    id: k,
+    name: `item-${k}`,
+    content: `item ${k}`,
+    createdAt: '2018'
   }));
 
 // a little function to help us with reordering the result
@@ -75,7 +78,7 @@ export default class App extends Component {
             <div
               ref={provided.innerRef}
               style={getListStyle(snapshot.isDraggingOver)}
-            >
+              >
               {this.state.items.map((item, index) => (
                 <Draggable key={item.id} draggableId={item.id} index={index}>
                   {(provided, snapshot) => (
@@ -87,9 +90,10 @@ export default class App extends Component {
                         snapshot.isDragging,
                         provided.draggableProps.style
                       )}
-                    >
-                      {item.content}
-                      hoge
+                      >
+                      <div>{item.id}</div>
+                      <div>{item.name}</div>
+                      <div>{item.createdAt}</div>
                     </div>
                   )}
                 </Draggable>
