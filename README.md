@@ -1,24 +1,12 @@
-# README
+![rails-react-todo-2](https://user-images.githubusercontent.com/7911481/39092510-4f2c52a8-464a-11e8-8524-82f982833131.gif)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+# Usage
 
-* Ruby version
+```
+$ docker-compose up
+$ docker-compose exec app rails s
+$ docker-compose exec app bin/webpack-dev-server
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Access localhost:3000/todos
