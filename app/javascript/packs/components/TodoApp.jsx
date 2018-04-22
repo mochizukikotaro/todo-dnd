@@ -23,11 +23,11 @@ export default class App extends Component {
       })
   }
   addItem(name, createdAt) {
-    const todo = {name: name, createdAt: createdAt}
     const headers = {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     }
+    const todo = {name: name, createdAt: createdAt}
     const method = 'POST'
     const body = JSON.stringify(todo)
     fetch("http://localhost:3000/todos.json", {
@@ -45,7 +45,19 @@ export default class App extends Component {
       })
   }
   deleteItem(id) {
-    this.setState({todos: this.state.todos.filter(d => d.id != id)})
+    const headers = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+    const method = 'DELETE'
+    fetch(`http://localhost:3000/todos/${id}.json`, {
+      headers: headers,
+      method: method
+    }).then(response => response.json())
+      .then(data => {
+        const deletedId = data.id
+        this.setState({todos: this.state.todos.filter(d => d.id != deletedId)})
+      })
   }
   render() {
     return (

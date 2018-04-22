@@ -14,6 +14,14 @@ class TodosController < ApplicationController
     render json: @todo
   end
 
+  def destroy
+    # TODO: When given unexpected params...
+    todo = Todo.find(params[:id])
+    if todo.destroy
+      render json: todo
+    end
+  end
+
   private
 
   def todo_params

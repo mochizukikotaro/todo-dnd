@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :todos, only: %i[index create]
+  resources :todos, only: %i[index create destroy]
 
   get 'test/index'
 
