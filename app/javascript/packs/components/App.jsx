@@ -72,14 +72,14 @@ export default class App extends Component {
       return;
     }
 
-    const items = reorder(
-      this.state.items,
+    const todos = reorder(
+      this.state.todos,
       result.source.index,
       result.destination.index
     );
 
     this.setState({
-      items
+      todos
     });
   }
   addItem(name, createdAt) {
